@@ -1,0 +1,19 @@
+{
+  "name": "hallpro-e",
+  "version": "1.0.0",
+  "description": "Hallway Display",
+  "main": "index.js",
+  "scripts": {
+    "electron": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/david50s/electron-hallway.git"
+  },
+  "author": "David E Smith",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^2.0.6",
+    "save": "^2.3.2"
+  }
+}

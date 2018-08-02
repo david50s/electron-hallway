@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- comment -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="shortcut icon" href="bticon.png" type="image/x-icon" />
+    <title>Welcome to Beavertail</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+
+    <!-- liMarquee scrolling -->
+    <link href="css/liMarquee.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/jClocksGMT.css">
+    <link rel="stylesheet" href="css/monthly.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+        <div id="monthlywrap" class="z-depth-5">
+            <div class="monthly" id="mycalendar" ></div>
+        <div class="text-right"><button onclick="hidefullcalendar();" class="btn btn-success">Close</button></div>
+        </div>
+         <div id="videoinset"  data-interval="18000" data-ride="carousel">
+            <video id="vidinset" src="img/ClimbTheTowerAugust-12.mp4" width="850px" autoplay loop class="z-depth-5" ></video>
+            <!-- <div>
+                <script type="text/javascript"> width='100%';	// the width of the embedded map in pixels or percentage 
+                height='450';	// the height of the embedded map in pixels or percentage 
+                border='1';	// the width of the border around the map (zero means no border) 
+                shownames='true';	// to display ship names on the map (true or false) 
+                latitude='41.449285';	// the latitude of the center of the map, in decimal degrees 
+                longitude='-71.399423';	// the longitude of the center of the map, in decimal degrees
+                zoom='12';	// the zoom level of the map (values between 2 and 17) 
+                maptype='1';	// use 0 for Normal Map, 1 for Satellite, 2 for OpenStreetMap
+                trackvessel='0';	// MMSI of a vessel (note: vessel will be displayed only if within range of the system) - overrides "zoom" option 
+                fleet='';	// the registered email address of a user-defined fleet (user's default fleet is used) 
+                </script> 
+                <script type="text/javascript" src="//www.marinetraffic.com/js/embed.js">
+                </script>
+
+            </div>  -->
+             <!-- <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/may28to.png" width="850px" alt="">
+                </div>
+                <div class="carousel-item">
+                        <img src="img/may28to2.png" width="850px" alt="">
+                </div>
+            </div> -->
+        </div>  
+        
+    <!-- bootstrap carousel background -->
+    <!-- <div id="carousel-example-1" class="carousel slide carousel-fade" data-ride="carousel" data-interval="10000">
+            <div class="carousel-inner" role="listbox">
+                    <div id="bgslide1" class="carousel-item active"></div>
+                    <div id="bgslide3" class="carousel-item "></div>
+                    <div id="bgslide2" class="carousel-item "></div>
+                    <div id="bgslide4" class="carousel-item "></div>
+                    <div id="bgslide5" class="carousel-item "></div>
+                    <div id="bgslide6" class="carousel-item "></div>
+                    <div id="bgslide7" class="carousel-item "></div>
+                    
+
+
+            </div>
+
+    </div> -->
+    <!-- carousel background from tympanus.net -->
+    
+        <ul class="cb-slideshow">
+            <li><span>Image 01</span></li>
+            <li><span>Image 02</span></li>
+            <li><span>Image 03</span></li>
+            <li><span>Image 04</span></li>
+            <li><span>Image 05</span></li>
+            <li><span>Image 06</span></li>
+        </ul>
+    
+    <!--Mask-->
+    <div class="view hm-black-light">
+        <div class="container-fluid">
+            <div class="row mt-5">
+                <div class="col-3">
+                    <img id="logo" class="ml-5 img-responsive" src="img/200blmalogotrans.png" alt="">
+                </div>
+                <div class="col-9 d-flex">
+                    <h1 class="display-1 peach-gradient p-4 mr-4 z-depth-5 rounded align-self-center text-center">Beavertail Lighthouse Museum</h1>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-1"></div>
+                <div class="col-10 wlcm str-wrap " style="background-color: rgba(0, 0, 0, 0.0); position:relative; top:50vh; text-shadow: 5px 5px 5px #000;">
+                    <h1 id="wcrawl" class="text-white display-2" style="background-color: rgba(0, 0, 0, 0.0);">-- Welcome to the Beavertail Lighthouse. You are on the site of the third Lighthouse built in America -- </h1>
+                </div>
+                <div class="col-1"></div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- Card Carousel -->
+    <div class="container">
+    <div id="carousel-example-1z"  class="z-depth-5 cardcarousel carousel slide carousel-nulti-item " data-interval="15000" data-ride="carousel">
+        <div class="carousel-inner" role="listbox" >
+        <div class="card carousel-item active" style="background-image: url(img/006637.jpg); background-size: cover;background-position:center;height:45vh;width:20vw;" >
+            <!-- <img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap"> -->
+            <div class="card-body">
+                <div class="card-header">
+                    <h2 class="card-title text-white text-center" style="margin-bottom: 0;" >Beavertail Lighthouse Museum Association</h2>
+                </div>
+              
+              <!-- <p class="card-text text-white"> -->
+                <h2 id="clock_jt" ></h2>
+              <!-- </p> -->
+              <h3 id="opentimes" class="text-justify text-white" >The Museum is open today from 10:30 AM until 4:30 PM</h3>
+              </div>
+          </div>
+        <div class="card carousel-item c-card card-image" style="background-image: url(img/005573.jpg);background-size: cover;background-position:center;height:45vh;width:20vw;">
+            <div class="card-header text-white text-center">
+                <h4 class="card-title">Currently At Beavertail </h4>
+            </div>
+            <div class="card-body text-white " style="background-color: rgba(255, 255, 255, 0.0)">
+                <div>
+                    <!-- <h4>Current Conditions:</h4> -->
+                    <div class="media">
+                        <p id="current_icon"></p>
+                        <div class="media-body">
+                            <p>
+                                <span id="current_string"></span>
+                                <br>
+                                <span id="current_temp"></span>
+                                <br>
+                                <span id="current_wind" ></span>
+                            </p>
+                            <!-- <p id="current_wind"></p> -->
+                        </div>
+                    </div>
+                    <div class="media">
+                        <p id="cDay_icon"></p>
+                        <div class="media-body">
+                            <p id="currentDay_forecast"></p>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <p id="cNite_icon"></p>
+                        <div class="media-body">
+                            <p id="currentNite_forecast"></p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="card-footer" style="background-color: black;">
+                <div class="row">
+                    <div class="col-4">
+
+                        <img class="img-fluid" src="img/wundergroundLogo_4c_rev_horz.jpg" alt="">
+                    </div>
+                    <div class="col-8"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    <!-- /Card Carousel -->
+    <!--/.Mask-->
+    <!-- hidden cards -->
+    <div class="container-fluid toplayer">
+        <div class="row">
+            <!--Weather column-->
+            <div class="col-3 ml-auto">
+                <div id="card01">
+                    <button onclick="showcard01()" class="btn btn-block  blue-gradient btn-lg btn-roundtop">
+                        <h2 style="font-weight: bold;">3 Day Forecast</h2>
+                    </button>
+                    <div>
+                        <div class="card card-cascade ">
+                            <!--Card content-->
+                            <div class="card-body">
+                                <div class="media">
+                                    <p id="day2_icon"></p>
+                                    <div class="media-body">
+                                        <p id="day2_forecast"></p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <p id="nit2_icon"></p>
+                                    <div class="media-body">
+                                        <p id="nit2_forecast"></p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <p id="day3_icon"></p>
+                                    <div class="media-body">
+                                        <p id="day3_forecast"></p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <p id="nit3_icon"></p>
+                                    <div class="media-body">
+                                        <p id="nit3_forecast"></p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <p id="day4_icon"></p>
+                                    <div class="media-body">
+                                        <p id="day4_forecast"></p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <p id="nit4_icon"></p>
+                                    <div class="media-body">
+                                        <p id="nit4_forecast"></p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p id="gettime" ></p>
+                                </div>
+                                <!-- <div id="weather"></div> -->
+                                <!-- <div id="weather2"></div> -->
+                                <!-- <div class="text-right" >
+                                <button onclick="closecard01();" class="btn btn aqua-gradient">Close</button>
+                            </div> -->
+
+                            </div>
+                            <div class="card-footer">
+                                <div class="row">
+                                <div class="col-4">
+                                    <img class="img-fluid" src="img/wundergroundLogo_4c_horz.jpg" alt="">
+                                    <!-- <p class="grey-text"  style="font-size:xx-small" >Weather Underground is a registered trademark of The Weather Channel, LLC</p> -->
+                                </div>
+                                
+                                <!-- <div class="col-4 text-right">
+                                    <button onclick="getWunderground();" class="btn btn blue-gradient">Update Weather</button>
+                                </div> -->
+                                <div class="col-4 text-right">
+                                    <button onclick="closecard01();" class="btn btn blue-gradient">Close</button>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                            </div>
+                            </div>
+                            <!--/.Card content-->
+
+                        </div>
+                    </div>
+                </div>
+                <!--/.card01-->
+            </div>
+            <!--/.Weather column-->
+            <!--Tides column-->
+            <div class="col-3 ml-auto">
+                <!--Card-->
+                <div id="card02">
+                    <button onclick="showcard02()" class="btn btn-block  blue-gradient btn-lg btn-roundtop">
+                        <h2 style="font-weight: bold;">Beavertail Tides</h2>
+                    </button>
+                    <div class="card card-cascade ">
+                        <div class="card-body ">
+                            <div id="tidewrapper" class="card-body text-center">
+                                <table id="tidetable" class="table table-bordered table-sm ">
+                                </table>
+                            </div>
+                            <div class="text-right">
+                                <button onclick="closecard02();" class="btn btn blue-gradient">Close</button>
+                            </div>
+
+                        </div>
+                        <!--/.Card content-->
+                    </div>
+                </div>
+                <!--/.Card-->
+            </div>
+            <!--/.Tides column-->
+            <!--Events column-->
+            <div class="col-3 ml-auto ">
+                <!--Card 3-->
+                <div id="card03">
+                    <button onclick="showcard03()" class="btn btn-block  blue-gradient btn-lg btn-roundtop">
+                        <h2 style="font-weight: bold;">Museum Events</h2>
+                    </button>
+                    <div class="card card-cascade ">
+
+                        <!--Card content-->
+                        <div class="card-body text-center">
+                            <div class="container">
+
+                                <!-- <h2>Agenda</h2>
+                                    <p class="lead">
+                                        This agenda viewer will let you see multiple events cleanly!
+                                    </p>
+                                    
+                                    <div class="alert alert-warning">
+                                        <h4>Mobile Support</h4>
+                                        <p>In order to get the lines between cells looking their best without any JavaScript, I had to use tables for this design. While this could be done in ".row", doing so will cause issues when displaying the vertical borders between cells, which is a compromise I wasn't willing to make this time.'</p>
+                                    </div>
+                                
+                                    <hr /> -->
+                                
+                                    <div class="agenda">
+                                        <div class="table-responsive">
+                                            <table class="table table-condensed table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Date</th>
+                                                        <th>Time</th>
+                                                        <th>Event</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- Single event in a single day -->
+                                                    </tbody> 
+                                                    <!-- <tr>
+                                                        <td class="agenda-date" class="active" rowspan="1">
+                                                            <div class="dayofmonth">01</div>
+                                                            <div class="dayofweek">Sunday</div>
+                                                            <div class="shortdate text-muted">July, 2018</div>
+                                                        </td>
+                                                        <td class="agenda-time">
+                                                            1:00 PM -<br> 4:00 PM
+                                                        </td>
+                                                        <td class="agenda-events">
+                                                            <div class="agenda-event">
+                                                                <i class="glyphicon glyphicon-repeat text-muted" title="Repeating event"></i> 
+                                                                Climb the Tower
+                                                            </div>
+                                                        </td>
+                                                        </tr>  -->
+                                                        <!-- <tr>
+                                                                <td class="agenda-date" class="active" rowspan="1">
+                                                                        <div class="dayofmonth">28</div>
+                                                                        <div class="dayofweek">Monday</div>
+                                                                        <div class="shortdate text-muted">May, 2018</div>
+                                                                    </td>   
+                                                        <td class="agenda-time">
+                                                            12:00 PM - 3:00 PM
+                                                        </td>
+                                                        <td class="agenda-events">
+                                                            <div class="agenda-event">
+                                                                <i class="glyphicon glyphicon-repeat text-muted" title="Repeating event"></i> 
+                                                                Tower Open
+                                                            </div>
+                                                        </td>
+                                                    </tr> -->
+                                                    
+                                                    <!-- Multiple events in a single day (note the rowspan) -->
+                                                    <!-- <tr>
+                                                        <td class="agenda-date" class="active" rowspan="3">
+                                                            <div class="dayofmonth">16</div>
+                                                            <div class="dayofweek">Saturday</div>
+                                                            <div class="shortdate text-muted">June, 2018</div>
+                                                        </td>
+                                                        <td class="agenda-time">
+                                                            10:30 AM - 4:30 PM 
+                                                        </td>
+                                                        <td class="agenda-events">
+                                                            <div class="agenda-event">
+                                                                Start of Summer Daily Hours
+                                                            </div>
+                                                        </td>
+                                                        </tr> -->
+                                                        <!-- <tr>
+                                                        <td class="agenda-time">
+                                                                1:00 PM - 4:00 PM 
+                                                            </td>
+                                                            <td class="agenda-events">
+                                                                <div class="agenda-event">
+                                                                    Tower Open
+                                                                </div>
+                                                            </td>
+                                                    </tr> -->
+                                                    <!-- <tr>
+                                                            <td class="agenda-time">
+                                                                     
+                                                                </td>
+                                                                <td class="agenda-events">
+                                                                    <div class="agenda-event">
+                                                                        25th Anniversery
+                                                                    </div>
+                                                                </td>
+                                                        </tr> -->
+                                                        <!-- <tr>
+                                                            <td class="agenda-date" class="active" rowspan="1">
+                                                                <div class="dayofmonth">14</div>
+                                                                <div class="dayofweek">Saturday</div>
+                                                                <div class="shortdate text-muted">July, 2018</div>
+                                                            </td>
+                                                            <td class="agenda-time">
+                                                                1:00 PM -<br> 4:00 PM
+                                                            </td>
+                                                            <td class="agenda-events">
+                                                                <div class="agenda-event">
+                                                                    <i class="glyphicon glyphicon-repeat text-muted" title="Repeating event"></i> 
+                                                                    Climb the Tower
+                                                                </div>
+                                                            </td>
+                                                            </tr> -->
+                                                            <!-- <tr>
+                                                                <td class="agenda-date" class="active" rowspan="2">
+                                                                    <div class="dayofmonth">21</div>
+                                                                    <div class="dayofweek">Saturday</div>
+                                                                    <div class="shortdate text-muted">July, 2018</div>
+                                                                </td>
+                                                                <td class="agenda-time">
+                                                                    All Day
+                                                                </td>
+                                                                <td class="agenda-events" rowspan="1">
+                                                                    <div class="agenda-event">
+                                                                        <i class="glyphicon glyphicon-repeat text-muted" title="Repeating event"></i> 
+                                                                        RI ARES
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    Rhode Island Amateur Radio Emergency Service 
+                                                                </td>
+                                                            </tr> -->
+                                                            <!-- <tr>
+                                                                <td class="agenda-date" class="active" rowspan="1">
+                                                                    <div class="dayofmonth">28</div>
+                                                                    <div class="dayofweek">Saturday</div>
+                                                                    <div class="shortdate text-muted">July, 2018</div>
+                                                                </td>
+                                                                <td class="agenda-time">
+                                                                    1:00 PM -<br> 4:00 PM
+                                                                </td>
+                                                                <td class="agenda-events">
+                                                                    <div class="agenda-event">
+                                                                        <i class="glyphicon glyphicon-repeat text-muted" title="Repeating event"></i> 
+                                                                        Climb the Tower
+                                                                    </div>
+                                                                </td>
+                                                                </tr> -->
+                                                                <tr>
+                                                                    <td class="agenda-date" class="active" rowspan="1">
+                                                                        <div class="dayofmonth">12</div>
+                                                                        <div class="dayofweek">Sunday</div>
+                                                                        <div class="shortdate text-muted">August, 2018</div>
+                                                                    </td>
+                                                                    <td class="agenda-time">
+                                                                        1:00 PM -<br> 4:00 PM
+                                                                    </td>
+                                                                    <td class="agenda-events">
+                                                                        <div class="agenda-event">
+                                                                            <i class="glyphicon glyphicon-repeat text-muted" title="Repeating event"></i> 
+                                                                            Climb the Tower
+                                                                        </div>
+                                                                    </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="agenda-date" class="active" rowspan="1">
+                                                                            <div class="dayofmonth">25</div>
+                                                                            <div class="dayofweek">Saturday</div>
+                                                                            <div class="shortdate text-muted">August, 2018</div>
+                                                                        </td>
+                                                                        <td class="agenda-time">
+                                                                            1:00 PM -<br> 4:00 PM
+                                                                        </td>
+                                                                        <td class="agenda-events">
+                                                                            <div class="agenda-event">
+                                                                                <i class="glyphicon glyphicon-repeat text-muted" title="Repeating event"></i> 
+                                                                                Climb the Tower
+                                                                            </div>
+                                                                        </td>
+                                                                        </tr>
+                                                    <!-- <tr>
+                                                        <td class="agenda-time">
+                                                            10:15 AM - 12:00 PM 
+                                                        </td>
+                                                        <td class="agenda-events">
+                                                            <div class="agenda-event">
+                                                                Meeting with executives
+                                                            </div>
+                                                        </td>
+                                                    </tr> -->
+                                                    <!-- <tr>
+                                                        <td class="agenda-time">
+                                                            7:00 - 9:00 PM
+                                                        </td>
+                                                        <td class="agenda-events">
+                                                            <div class="agenda-event">
+                                                                Aria's dance recital
+                                                            </div>
+                                                        </td>
+                                                    </tr> -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="text-right">
+                                <!-- <button onclick="showfullcalendar();" class="btn blue-gradient">Show Full Calendar</button> -->
+                                <button onclick="closecard03();" class="btn btn blue-gradient">Close</button>
+                            </div>
+
+                        </div>
+                        <!--/.Card content-->
+
+                    </div>
+                </div>
+            </div>
+            <!--/.Events column-->
+            <!--Tower column-->
+            <div class="col-3 ml-auto">
+                <div id="card04">
+                    <div id="button04" onclick="showcard04()" class="btn btn-block  blue-gradient btn-lg btn-roundtop">
+                        <h2 style="font-weight: bold;">Tower Openings</h2>
+                    </div>
+                    <div class="card card-cascade ">
+                        <div class="card-body text-left">
+                            <div class="tower str-wrap" style="height: 300px; width: 20vw;">
+                                <h4 style="text-decoration:line-through;" >MONDAY MAY 28 12-3</h4>
+                                <h4 style="text-decoration:line-through;" >SATURDAY JUNE 16 1-4</h4>
+                                <h4 style="text-decoration:line-through;" >SUNDAY JULY 1 1-4</h4>
+                                <h4 style="text-decoration:line-through;" >SATURDAY JULY 14 1-4</h4>
+                                <h4 style="text-decoration:line-through;" >SATURDAY JULY 28 1-4</h4>
+                                <h4>SUNDAY AUGUST 12 1-4</h4>
+                                <h4>SATURDAY AUGUST 25 1-4</h4>
+                                <h4>MONDAY SEPTEMBER 3 12-3</h4>
+                                <h4>SATURDAY SEPTEMBER 15 12-3</h4>
+                                <h4>SATURDAY SEPTEMBER 29 12-3</h4>
+                                <h4>MONDAY OCTOBER 8 12-3</h4>
+                                <h4>***************************</h4>
+                                <h4></h4>
+                            </div>
+                            <div >
+                                <div class="row">
+                                    <div class="col-8">
+                                        <p class="mt-2">Tap list to stop scroll<br>
+                                        Tap here to start scroll</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <button onclick="closecard04();" class="btn btn blue-gradient">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.Card content-->
+                    </div>
+                    <!--/.Card-->
+                </div>
+                <!--Card-->
+            </div>
+            <!--/.Tower column-->
+        </div>
+    </div>
+    <!-- /hidden cards -->
+
+    <!-- SCRIPTS -->
+<!-- Insert this line above script imports  -->
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+
+    <!-- Bootstrap dropdown -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- http://simpleweatherjs.com/ -->
+    <!-- <script src="js/jquery.simpleWeather.min.js"></script> -->
+    <script src="js/jquery.liMarquee.js"></script>
+    <script src="js/idle-timer.js"></script>
+    <script src="js/jquery.rotate.js"></script>
+    <script src="js/jClocksGMT.js"></script>
+    <script src="opening.js"></script>
+    <script src="js/monthly.js"></script>
+
+    <script src="js/scripts.js"></script>
+    <!-- Insert this line after script imports -->
+<script>if (window.module) module = window.module;</script>
+<script>
+    window.addEventListener('error', function(e) {
+    console.log(e);
+    return;
+}, true);
+</script>
+    
+</body>
+
+</html>

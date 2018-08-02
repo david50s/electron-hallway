@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Events Playground</title>
+</head>
+<body>
+    <div id="oc"></div>
+    <div id="agenda">
+        <h1>Agenda</h1>
+    </div>
+    
+    <h2 id="agendatoday"></h2>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="./schedule2018.js"></script>
+    
+
+    <script>
+
+//     function updateOpentimes() {
+//     var opend = new Date();
+//     var gfy = opend.getFullYear();
+//     var gd = opend.getDate();
+//     var gm = (opend.getMonth()) + 1;
+//     console.log(gm);
+//     var gms = gm.toString();
+//     console.log(gms.length);
+//     if (gms.length == 1) {
+//         gms = "0" + gms;
+//     }
+//     var opentodayDate = `${gms}/${gd}/${gfy}`;
+//     console.log(opentodayDate);
+//     for (x=0; x < openings.length; x++ ) {
+//         fileDate = openings[x].dte;
+//         if (opentodayDate === fileDate) {
+//             console.log(`${openings[x].dte} ${openings[x].openclose}`);
+//             $('#agenda').append(`<h2>Today is ${openings[x].dte}</h2>`);
+//             for(y=0; y< openings[x].otherevents.length; y++) {
+//                 $('#agenda').append(`<h3>${openings[x].otherevents[y].otherevent}  ${openings[x].otherevents[y].othertime}</h3>`);
+//             }
+//             var z = x + 1;
+//             $('#agenda').append(`<h2>${openings[z].dte}</h2>`);
+//             for(y=0; y< openings[z].otherevents.length; y++) {
+//                 $('#agenda').append(`<h3>${openings[z].otherevents[y].otherevent}  ${openings[z].otherevents[y].othertime}</h3>`);
+//             }
+//             var z = x + 2;
+//             $('#agenda').append(`<h2>${openings[z].dte}</h2>`);
+//             for(y=0; y< openings[z].otherevents.length; y++) {
+//                 $('#agenda').append(`<h3>${openings[z].otherevents[y].otherevent}  ${openings[z].otherevents[y].othertime}</h3>`);
+//             }
+//             // console.log("yipee");
+//             //$("#opentimes").html(openings[x].openclose);
+//         }
+//     }
+// };
+function updateAgenda() {
+    var opend = new Date();
+    var gfy = opend.getFullYear();
+    var gd = opend.getDate();
+    var gm = (opend.getMonth()) + 1;
+    console.log(gm);
+    var gms = gm.toString();
+    console.log(gms.length);
+     //if (gms.length == 1) {
+     //    gms = "0" + gms;
+     //}
+    var opentodayDate = `${gms}/${gd}/${gfy}`;
+    //var opentodayDate = "7/18/2018";
+    console.log(opentodayDate);
+    for (x=0; x < openings.length; x++ ) {
+        fileDate = openings[x].dte;
+        if (opentodayDate === fileDate) {
+            console.log(`${openings[x].dte} ${openings[x].openclose}`);
+            $('#oc').html(`<h2>Today is ${openings[x].dte} <br> ${openings[x].openclose}</h2>`);
+            $('#oc').append(`<h2>Today is ${openings[x].openclose}</h2>`);
+            $('#agenda').append(`<h3>${openings[x].eventName}  ${openings[x].eventTime}</h3>`);
+            
+            // var z = x + 1;
+            // $('#agenda').append(`<h2>${openings[z].dte}</h2>`);
+            // for(y=0; y< openings[z].otherevents.length; y++) {
+            //     $('#agenda').append(`<h3>${openings[z].otherevents[y].otherevent}  ${openings[z].otherevents[y].othertime}</h3>`);
+            // }
+            // var z = x + 2;
+            // $('#agenda').append(`<h2>${openings[z].dte}</h2>`);
+            // for(y=0; y< openings[z].otherevents.length; y++) {
+            //     $('#agenda').append(`<h3>${openings[z].otherevents[y].otherevent}  ${openings[z].otherevents[y].othertime}</h3>`);
+            // }
+            // console.log("yipee");
+            //$("#opentimes").html(openings[x].openclose);
+            for (y = x + 1; y < x + 11; y++) {
+            $('#agenda').append(`<h3>${openings[y].dte} - ${openings[y].eventName}  ${openings[y].eventTime}</h3>`); 
+        }
+        }
+        //var y = x;
+        
+    }
+};
+//updateOpentimes();
+updateAgenda();
+    </script>
+</body>
+</html>

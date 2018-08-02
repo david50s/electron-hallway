@@ -1,0 +1,94 @@
+{
+  "monthly": [
+    {
+      "id": 1,
+      "name": "Museum Open",
+      "startdate": "2018-1-01",
+      "enddate": "",
+      "starttime": "12:00",
+      "endtime": "14:00",
+      "color": "#FFB128",
+      "url": ""
+    },
+    {
+      "id": 2,
+      "name": "Tower Open",
+      "startdate": "2018-1-01",
+      "enddate": "",
+      "starttime": "12:00",
+      "endtime": "14:00",
+      "color": "#EF44EF",
+      "url": ""
+    },
+    {
+      "id": 3,
+      "name": "Museum Open",
+      "startdate": "2018-5-26",
+      "enddate": "2018-5-28",
+      "starttime": "12:30",
+      "endtime": "16:30",
+      "color": "#FFB128",
+      "url": ""
+    },
+    {
+      "id": 4,
+      "name": "Tower Open",
+      "startdate": "2018-5-27",
+      "enddate": "",
+      "starttime": "13:00",
+      "endtime": "15:00",
+      "color": "#EF44EF",
+      "url": ""
+    },
+    {
+      "id": 5,
+      "name": "Museum Open",
+      "startdate": "2018-6-02",
+      "enddate": "2018-6-03",
+      "starttime": "12:30",
+      "endtime": "16:30",
+      "color": "#FFB128",
+      "url": ""
+    },
+    {
+      "id": 6,
+      "name": "Museum Open",
+      "startdate": "2018-6-09",
+      "enddate": "2018-6-10",
+      "starttime": "12:30",
+      "endtime": "16:30",
+      "color": "#FFB128",
+      "url": ""
+    },
+    {
+      "id": 7,
+      "name": "Museum Open",
+      "startdate": "2018-6-16",
+      "enddate": "2018-6-17",
+      "starttime": "12:30",
+      "endtime": "16:30",
+      "color": "#FFB128",
+      "url": ""
+    },
+    {
+      "id": 8,
+      "name": "Museum Open",
+      "startdate": "2018-6-23",
+      "enddate": "2018-6-24",
+      "starttime": "12:30",
+      "endtime": "16:30",
+      "color": "#FFB128",
+      "url": ""
+    },
+    {
+      "id": 9,
+      "name": "Museum Open",
+      "startdate": "2018-6-30",
+      "enddate": "2018-9-03",
+      "starttime": "12:30",
+      "endtime": "16:30",
+      "color": "#FFB128",
+      "url": ""
+    }
+  ]
+}
