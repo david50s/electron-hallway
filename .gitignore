@@ -4,4 +4,5 @@
 /dist
 /node_modules
 /hallpro-e-win32-x64
+/hallpro-e-win32-ia32
 .vscode/settings.json
