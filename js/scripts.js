@@ -309,6 +309,21 @@ function closecard04() {
 }
 var t, v, type, thours, tminutes, ritenow, ampm;
 function updatetides() {
+    tday = new Date();
+    tday_year = tday.getFullYear();
+    tday_year = tday_year.toString();
+    tday_month = tday.getMonth();
+    tday_month = tday_month + 1;
+    tday_month = tday_month.toString();
+    if ((tday.getMonth() + 1) < 10) {
+        tday_month = "0" + tday_month.toString();
+    }
+    tday_day = tday.getDate();
+    tday_day = tday_day.toString();
+    if (tday.getDate() < 10) {
+        tday_day = "0" + tday_day.toString();
+    }
+    tday_formated = tday_year + tday_month + tday_day;
     var tideurl = "https://tidesandcurrents.noaa.gov/api/datagetter?begin_date=" + tday_formated + "&range=48&station=8452660&product=predictions&datum=MLLW&units=english&time_zone=LST&interval=hilo&application=ports_screen&format=json";
     var tidetext = '<thead><tr><td>Date</td><td>Time</td><td>Height<br>In ft</td><td>High<br>Low</td></tr></thead>';
     $.getJSON( tideurl, function (tides) {
@@ -336,6 +351,7 @@ function updatetides() {
             tidetext += '<tr><td>' + tdate + '</td><td>' + thours + ":" + tminutes + " " + ampm + '</td><td>' + v + '</td><td>' + type + '</td></tr>';
         };
         $("#tidetable").html(tidetext);
+        $("#gettidetime").html(`Last Update: ${ritenow.getHours()}:${ritenow.getMinutes()}`);
     })
 }
 
