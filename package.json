@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "electron": "electron .",
-    "package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=icons/favicon.ico --prune=true"
+    "package-win": "electron-packager .  --overwrite --asar=true --platform=win32 --arch=ia32 --icon=icons/win/favicon.ico --prune=true"
   },
   "repository": {
     "type": "git",
@@ -14,10 +14,10 @@
   "author": "David E Smith",
   "license": "ISC",
   "dependencies": {
-    "electron": "^2.0.6",
     "save": "^2.3.2"
   },
   "devDependencies": {
-    "electron-packager": "^12.1.1"
+    "electron": "^2.0.6",
+    "electron-packager": "^12.1.0"
   }
 }
