@@ -159,9 +159,8 @@ $(document).ready(function () {
 function getWunderground() {
     weatherurl ="http://api.wunderground.com/api/4a1f4522c9d05e8c/geolookup/forecast/conditions/tide/alerts/q/pws:KRIJAMES4.json"
     //weatherurl ="http://api.wunderground.com/api/4a1f4522c9d05e8c/geolookup/forecast/conditions/q/pws:KRIJAMES4.json"
-    
     $.getJSON(weatherurl, function(weatherdata) {
-        // console.log(weatherdata.current_observation);
+        console.log(weatherdata.current_observation);
         current_string = `Current Conditions: ${weatherdata.current_observation.weather}`;
         current_temp = `Current Temperature: ${weatherdata.current_observation.temp_f}&deg F`;
         current_wind = `Wind: ${weatherdata.current_observation.wind_string}`
@@ -169,6 +168,7 @@ function getWunderground() {
         // console.log(weatherdata.current_observation.icon);
         // console.log(weatherdata.current_observation.icon_url);
         // console.log(icon_url);
+        console.log(weatherdata.tide);
         $("#current_string").html(current_string);
         $("#current_temp").html(current_temp);
         $("#current_icon").html(icon_url);
