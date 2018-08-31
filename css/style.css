@@ -408,9 +408,9 @@ body,
     background: rgba(255, 255, 255, 0.75);
   }
   
-  #weather .currently {
+  /* #weather .currently { */
     /* margin: 0 20px; */
-  }
+  /* } */
   /* scrolling styles */
   #demo {
     background: rgba(255, 255, 255, 0.75);
@@ -448,12 +448,12 @@ body,
     padding-right: 20px;
     padding-left: 20px;
   }
-  #tidewrapper {
+  /* #tidewrapper { */
     /* background-image: url(../img/sunset.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center; */
-  }
+  /* } */
 #weathercrawl {
   height: 100px;
 
@@ -608,8 +608,8 @@ body,
 
 
 /* Events */
-.agenda .agenda-events {  } 
-.agenda .agenda-events .agenda-event {  } 
+/* .agenda .agenda-events {  }  */
+/* .agenda .agenda-events .agenda-event {  }  */
 
 @media (max-width: 767px) {
     

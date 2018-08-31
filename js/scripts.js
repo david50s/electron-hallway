@@ -8,6 +8,7 @@ var tides;
 var l;
 var tday, tday_year, tday_month, tday_day, tday_formated;
 var weatherurl;
+var uniweatherdata;
 //var vid = document.getElementById("vidinset");
 $.idleTimer(idt);
 $(document).ready(function () {
@@ -111,8 +112,8 @@ $(document).ready(function () {
     // 600000 is 10 min
     // 120000 is 2 min
     // 300000 is 5 min
-    updatetides();
-    setInterval(updatetides, 600000);
+    //updatetides();
+    //setInterval(updatetides, 600000);
 });
 // function getweather() {
 //     $.simpleWeather({
@@ -160,6 +161,7 @@ function getWunderground() {
     weatherurl ="http://api.wunderground.com/api/4a1f4522c9d05e8c/geolookup/forecast/conditions/tide/alerts/q/pws:KRIJAMES4.json"
     //weatherurl ="http://api.wunderground.com/api/4a1f4522c9d05e8c/geolookup/forecast/conditions/q/pws:KRIJAMES4.json"
     $.getJSON(weatherurl, function(weatherdata) {
+        uniweatherdata = weatherdata;
         console.log(weatherdata.current_observation);
         current_string = `Current Conditions: ${weatherdata.current_observation.weather}`;
         current_temp = `Current Temperature: ${weatherdata.current_observation.temp_f}&deg F`;
@@ -169,6 +171,7 @@ function getWunderground() {
         // console.log(weatherdata.current_observation.icon_url);
         // console.log(icon_url);
         console.log(weatherdata.tide);
+        console.log(weatherdata.tide.tideSummary[0].data.type);
         $("#current_string").html(current_string);
         $("#current_temp").html(current_temp);
         $("#current_icon").html(icon_url);
@@ -214,6 +217,89 @@ function getWunderground() {
         $("#nit4_forecast").html(nit4_forecast);
         $("#nit4_icon").html(nit4_icon);
         $("#gettime").html(`Last Update: ${ritenow.getHours()}:${ritenow.getMinutes()}`)
+        
+        var tidetext = '<thead><tr><td>Date</td><td>Time</td><td>Event</td></tr></thead>';
+        //for (i = 0; i < uniweatherdata.tide.tideSummary.length; i++) {
+            var otdate;
+            var tmon;
+            for (i = 0; i < 14; i++) { 
+                var tmonth = uniweatherdata.tide.tideSummary[i].date.mon;
+            // console.log(tmonth);   
+                switch(tmonth) {
+                    case "01":
+                        tmon = "January";
+                        break;
+                    case "02":
+                        tmon = "February";
+                        break;
+                    case "03":
+                        tmon = "March";
+                        break;
+                    case "04":
+                        tmon = "April";
+                        break;
+                    case "05":
+                        tmon = "May";
+                        break;
+                    case "06":
+                        tmon = "June";
+                        break;
+                    case "07":
+                        tmon = "July";
+                        break;
+                    case "08":
+                        tmon = "August";
+                        break;
+                    case "09":
+                        tmon = "September";
+                        break;
+                    case "10":
+                        tmon = "October";
+                        break;
+                    case "11":
+                        tmon = "November";
+                        break;
+                    case "12":
+                        tmon = "December";
+                        break;   
+                }
+            var tdate = `${tmon} ${uniweatherdata.tide.tideSummary[i].date.mday}, ${uniweatherdata.tide.tideSummary[i].date.year}`;
+            var thour = uniweatherdata.tide.tideSummary[i].date.hour;
+            var ampm;
+            var ntdate = tdate;
+            if (ntdate == otdate) {
+               tdate = "";
+             };
+            if (thour > 12) {
+                thour = thour - 12;
+                ampm = "PM";
+            } else {
+                ampm = "AM"
+            };
+            var ttime = `${thour}:${uniweatherdata.tide.tideSummary[i].date.min} ${ampm}`;
+            var ttype = `${uniweatherdata.tide.tideSummary[i].data.type}`;
+            // thours = t.substr(11,2);
+            // if (thours > 12) {
+            //     thours = thours - 12;
+            //     ampm = "PM";
+            // } else {
+            //     ampm = "AM";
+            // }
+            // console.log( thours + " " + ampm)
+            // tminutes = t.substr(14,2);
+            // tdate = t.substr(5, 5) + "-" + t.substr(2,2);
+            
+            // v = tides.predictions[i].v;
+            // type = tides.predictions[i].type;
+            // console.log(t);
+            // console.log(v);
+            // console.log(type);
+            tidetext += `<tr><td style="font-size:.9rem; color: grey;">${tdate}</td><td style="font-size:.9rem;">${ttime}</td><td style="font-size:.9rem;">${ttype}</td><td</td></tr>`;
+            otdate = ntdate;
+            console.log(otdate);
+        };
+        $("#tidetable").html(tidetext)
+        $("#gettidetime").html(`Last Update: ${ritenow.getHours()}:${ritenow.getMinutes()}`);
          //error: function (error) {
          //    alert('no connection');
         //       $("#currentDay_forecast").html('<p>' + error + '</p>');
@@ -241,7 +327,7 @@ function showcard01() {
 
 function showcard02() {
     $('#card02').animate({
-        'top': '15vh'
+        'top': '12vh'
     }, 1000);
     $('#card01').animate({
         'top': '83vh'
@@ -308,52 +394,52 @@ function closecard04() {
     }, 1000);
 }
 var t, v, type, thours, tminutes, ritenow, ampm;
-function updatetides() {
-    tday = new Date();
-    tday_year = tday.getFullYear();
-    tday_year = tday_year.toString();
-    tday_month = tday.getMonth();
-    tday_month = tday_month + 1;
-    tday_month = tday_month.toString();
-    if ((tday.getMonth() + 1) < 10) {
-        tday_month = "0" + tday_month.toString();
-    }
-    tday_day = tday.getDate();
-    tday_day = tday_day.toString();
-    if (tday.getDate() < 10) {
-        tday_day = "0" + tday_day.toString();
-    }
-    tday_formated = tday_year + tday_month + tday_day;
-    var tideurl = "https://tidesandcurrents.noaa.gov/api/datagetter?begin_date=" + tday_formated + "&range=48&station=8452660&product=predictions&datum=MLLW&units=english&time_zone=LST&interval=hilo&application=ports_screen&format=json";
-    var tidetext = '<thead><tr><td>Date</td><td>Time</td><td>Height<br>In ft</td><td>High<br>Low</td></tr></thead>';
-    $.getJSON( tideurl, function (tides) {
-        ritenow = new Date();
-        console.log('Getting Tides ' + ritenow.getHours() + ':' + ritenow.getMinutes());
+// function updatetides() {
+//     tday = new Date();
+//     tday_year = tday.getFullYear();
+//     tday_year = tday_year.toString();
+//     tday_month = tday.getMonth();
+//     tday_month = tday_month + 1;
+//     tday_month = tday_month.toString();
+//     if ((tday.getMonth() + 1) < 10) {
+//         tday_month = "0" + tday_month.toString();
+//     }
+//     tday_day = tday.getDate();
+//     tday_day = tday_day.toString();
+//     if (tday.getDate() < 10) {
+//         tday_day = "0" + tday_day.toString();
+//     }
+//     tday_formated = tday_year + tday_month + tday_day;
+//     var tideurl = "https://tidesandcurrents.noaa.gov/api/datagetter?begin_date=" + tday_formated + "&range=48&station=8452660&product=predictions&datum=MLLW&units=english&time_zone=LST&interval=hilo&application=ports_screen&format=json";
+//     var tidetext = '<thead><tr><td>Date</td><td>Time</td><td>Height<br>In ft</td><td>High<br>Low</td></tr></thead>';
+//     $.getJSON( tideurl, function (tides) {
+//         ritenow = new Date();
+//         console.log('Getting Tides ' + ritenow.getHours() + ':' + ritenow.getMinutes());
         // console.log('Tides length' + tides.predictions.length);
-        for (i = 0; i < tides.predictions.length; i++) {
-            t = tides.predictions[i].t;
-            thours = t.substr(11,2);
-            if (thours > 12) {
-                thours = thours - 12;
-                ampm = "PM";
-            } else {
-                ampm = "AM";
-            }
+        // for (i = 0; i < tides.predictions.length; i++) {
+        //     t = tides.predictions[i].t;
+        //     thours = t.substr(11,2);
+        //     if (thours > 12) {
+        //         thours = thours - 12;
+        //         ampm = "PM";
+        //     } else {
+        //         ampm = "AM";
+        //     }
             // console.log( thours + " " + ampm)
-            tminutes = t.substr(14,2);
-            tdate = t.substr(5, 5) + "-" + t.substr(2,2);
+            // tminutes = t.substr(14,2);
+            // tdate = t.substr(5, 5) + "-" + t.substr(2,2);
             
-            v = tides.predictions[i].v;
-            type = tides.predictions[i].type;
+            // v = tides.predictions[i].v;
+            // type = tides.predictions[i].type;
             // console.log(t);
             // console.log(v);
             // console.log(type);
-            tidetext += '<tr><td>' + tdate + '</td><td>' + thours + ":" + tminutes + " " + ampm + '</td><td>' + v + '</td><td>' + type + '</td></tr>';
-        };
-        $("#tidetable").html(tidetext);
-        $("#gettidetime").html(`Last Update: ${ritenow.getHours()}:${ritenow.getMinutes()}`);
-    })
-}
+//             tidetext += '<tr><td>' + tdate + '</td><td>' + thours + ":" + tminutes + " " + ampm + '</td><td>' + v + '</td><td>' + type + '</td></tr>';
+//         };
+//         $("#tidetable").html(tidetext);
+//         $("#gettidetime").html(`Last Update: ${ritenow.getHours()}:${ritenow.getMinutes()}`);
+//     })
+// }
 
 function updateOpentimes() {
     var opend = new Date();
